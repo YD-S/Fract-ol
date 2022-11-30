@@ -17,10 +17,6 @@ void	hook(struct mlx_key_data keydata, void *data)
 			mlx->x_off -= SPEED;
 		if (keydata.key == MLX_KEY_D)
 			mlx->x_off += SPEED;
-		if (keydata.key == MLX_KEY_L)
-			mlx->max_iter += 5;
-		if (keydata.key == MLX_KEY_P)
-			mlx->max_iter -= 5;
 		hook_scale(keydata, mlx);
 		ft_draw_fractal(mlx);
 	}
@@ -40,4 +36,8 @@ void	hook_scale(struct mlx_key_data keydata, t_data *mlx)
 		mlx->scale *= 0.75f;
 		mlx->scalechange = mlx->scale - mlx->scalechange;
 	}
+	if (keydata.key == MLX_KEY_L)
+		mlx->max_iter += 5;
+	if (keydata.key == MLX_KEY_P)
+		mlx->max_iter -= 5;
 }
