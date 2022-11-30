@@ -5,7 +5,7 @@ OBJ		= ${SRC:.c=.o}
 LIBFT = libft/libft.a
 INC = -I libft/includes
 MLX = MLX42/libmlx42.a
-BREW = /opt/homebrew/opt/glfw/lib
+BREW = /Users/ysingh/.brew/opt/glfw/lib/
 
 all: $(NAME)
 
