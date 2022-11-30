@@ -36,5 +36,5 @@ void	ft_complex_mul(t_complex *n1, t_complex *n2)
 
 float	ft_complex_module(t_complex *complex)
 {
-	return (sqrt(pow(complex->real, 2) + pow(complex->imagine, 2)));
+	return (pow(complex->real, 2) + pow(complex->imagine, 2));
 }

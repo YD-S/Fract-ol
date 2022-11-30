@@ -9,7 +9,7 @@ void	ft_mouse(double x, double y, void *vdata)
 	data->mouse_y = y;
 }
 
-void	ft_calc_pixel(int x, int y, t_data *data)
+void	ft_transform_pixel(int x, int y, t_data *data)
 {
 	data->x_x = x + data->x_off - data->mouse_x * data->scalechange;
 	data->x_x *= data->scale;

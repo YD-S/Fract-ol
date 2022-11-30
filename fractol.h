@@ -10,7 +10,6 @@
 # include <unistd.h>
 # define WIDTH 600
 # define HEIGHT 400
-# define MAX_ITERATIONS 250
 # define SPEED 25
 
 typedef struct s_rgb
@@ -37,6 +36,7 @@ typedef struct s_pqt
 typedef struct s_data
 {
 	int			fractal;
+	int			max_iter;
 	double		x_x;
 	double		y_y;
 	double		mouse_x;
@@ -56,16 +56,15 @@ typedef struct s_complex
 }				t_complex;
 
 int				ft_choose_fractal(char **argv, t_data *data);
-double			ft_mandelbrot(t_complex *complex);
-t_data			*ft_stuct_mandelbrot(mlx_image_t *img);
+double			ft_mandelbrot(t_complex *complex, t_data *data);
 void			ft_draw_fractal(t_data *data);
-int				ft_fractal_color(double n);
+int				ft_fractal_color(double n, t_data *data);
 int				get_rgba(int r, int g, int b, int a);
 t_complex		*ft_create_complex(double real, double imagine);
 void			ft_complex_addnum(t_complex *n1, t_complex *n2);
 void			ft_complex_mul(t_complex *n1, t_complex *n2);
 float			ft_complex_module(t_complex *complex);
-void			ft_calc_pixel(int x, int y, t_data *data);
+void			ft_transform_pixel(int x, int y, t_data *data);
 void			ft_mouse(double x, double y, void *vdata);
 uint32_t		hsv2rgb(t_hsv hsv);
 t_data			ft_fractal_init(void);

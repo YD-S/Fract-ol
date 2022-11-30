@@ -1,14 +1,14 @@
 #include "fractol.h"
 
-int	ft_fractal_color(double n)
+int	ft_fractal_color(double n, t_data *data)
 {
 	double	hue;
 	double	sat;
 	double	value;
 
-	hue = 255 * n / MAX_ITERATIONS;
+	hue = 255 * n / data->max_iter;
 	sat = 255;
-	if (n == (double)MAX_ITERATIONS)
+	if (n == (double)data->max_iter)
 		value = 0;
 	else
 		value = 255;

@@ -8,6 +8,7 @@ t_data	ft_fractal_init(void)
 	data.scale = 1;
 	data.x_off = -WIDTH / 2;
 	data.y_off = -HEIGHT / 2;
+	data.max_iter = 50;
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
 	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
@@ -42,13 +43,13 @@ void	ft_draw_fractal(t_data *data)
 		y = 0;
 		while ((unsigned int)y < HEIGHT)
 		{
-			ft_calc_pixel(x, y, data);
+			ft_transform_pixel(x, y, data);
 			complex->real = (double)(((-2 + data->x_x) / (double)WIDTH) * 3);
 			complex->imagine = (double)(((-1 + data->y_y) / (double)HEIGHT)
 					* 2);
 			if (data->fractal)
 				mlx_put_pixel(data->img, x, y,
-					ft_fractal_color(ft_mandelbrot(complex)));
+					ft_fractal_color(ft_mandelbrot(complex, data), data));
 			// else
 			// 	mlx_put_pixel(data->img, x, y,
 			// 		ft_fractal_color(ft_julia(complex)));

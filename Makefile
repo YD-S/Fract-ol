@@ -21,10 +21,12 @@ $(MLX):
 clean:
 	@rm -rf $(OBJ)
 	@make -C MLX42/ clean
+	@make -C libft/ clean
 	@echo 🔥 🔥 Deleting all .o Files 🗑️ 🗑️
 fclean: clean
 	@rm -f $(NAME)
 	@make -C MLX42/ fclean
+	@make -C libft/ fclean
 	@echo 🔥 🔥 Deleting .a File 🗑️ 🗑️
 
 %.o: %.c
