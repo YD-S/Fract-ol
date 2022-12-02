@@ -45,27 +45,28 @@ typedef struct s_pqt
 	double		t;
 }				t_pqt;
 
+typedef struct s_complex
+{
+	double		imagine;
+	double		real;
+}				t_complex;
+
 typedef struct s_data
 {
 	int			fractal;
 	int			max_iter;
 	double		x_x;
 	double		y_y;
-	double		mouse_x;
-	double		mouse_y;
+	int32_t		mouse_x;
+	int32_t		mouse_y;
 	double		x_off;
 	double		y_off;
 	double		scale;
 	double		scalechange;
+	t_complex	*complex;
 	mlx_image_t	*img;
 	mlx_t		*mlx;
 }				t_data;
-
-typedef struct s_complex
-{
-	double		imagine;
-	double		real;
-}				t_complex;
 
 int				ft_choose_fractal(char **argv, t_data *data);
 double			ft_mandelbrot(t_complex *complex, t_data *data);
@@ -82,5 +83,6 @@ uint32_t		hsv2rgb(t_hsv hsv);
 t_data			ft_fractal_init(void);
 void			hook_scale(struct mlx_key_data keydata, t_data *mlx);
 void			hook(struct mlx_key_data keydata, void *data);
+double			ft_julia(t_complex *c, t_complex *z0, t_data *data);
 
 #endif

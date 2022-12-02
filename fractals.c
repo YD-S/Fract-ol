@@ -21,6 +21,8 @@ t_data	ft_fractal_init(void)
 	data.x_off = -WIDTH / 2;
 	data.y_off = -HEIGHT / 2;
 	data.max_iter = 50;
+	data.complex->real = 0.285;
+	data.complex->imagine = 0.01;
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
 	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
@@ -36,7 +38,7 @@ int	ft_choose_fractal(char **argv, t_data *data)
 		data->fractal = 0;
 	else
 	{
-		ft_printf("No hay argumenos valido");
+		ft_printf("There are no valid arguments");
 		return (0);
 	}
 	return (1);
@@ -62,9 +64,10 @@ void	ft_draw_fractal(t_data *data)
 			if (data->fractal)
 				mlx_put_pixel(data->img, x, y,
 					ft_fractal_color(ft_mandelbrot(complex, data), data));
-			// else
-			// 	mlx_put_pixel(data->img, x, y,
-			// 		ft_fractal_color(ft_julia(complex)));
+			else
+				mlx_put_pixel(data->img, x, y,
+					ft_fractal_color(ft_julia(data->complex, complex, data),
+						data));
 			y++;
 		}
 		x++;

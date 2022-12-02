@@ -17,8 +17,13 @@ void	ft_mouse(double x, double y, void *vdata)
 	t_data	*data;
 
 	data = vdata;
-	data->mouse_x = x;
-	data->mouse_y = y;
+	//printf("X: %f Y: %f\n", x, y);
+	(void)x;
+	(void)y;
+	mlx_get_mouse_pos(data->mlx, &data->mouse_x, &data->mouse_y);
+	printf("X: %d Y: %d\n", data->mouse_x, data->mouse_y);
+	//data->mouse_x = x;
+	//data->mouse_y = y;
 }
 
 void	ft_transform_pixel(int x, int y, t_data *data)

@@ -1,11 +1,11 @@
 NAME    = fractol
 CFLAGS  = -Wall -Wextra -Werror
-SRC		= main.c fractals.c ft_mandelbrot.c complex.c colors.c mouse.c hooks.c
+SRC		= main.c fractals.c ft_mandelbrot.c complex.c colors.c mouse.c hooks.c ft_julia.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = libft/libft.a
 INC = -I libft/includes
 MLX = MLX42/libmlx42.a
-BREW = /Users/ysingh/.brew/opt/glfw/lib/
+BREW = /opt/homebrew/Cellar/glfw/3.3.8/lib/
 
 all: $(NAME)
 

@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc <= 1)
 	{
-		ft_printf("No hay argumentos validos");
+		ft_printf("There are no valid arguments");
 		exit(EXIT_FAILURE);
 	}
 	data = ft_fractal_init();
