@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 22:10:55 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 23:59:03 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct s_data
 	double		x_off;
 	double		y_off;
 	double		scale;
-	double		scalechange;
 	t_complex	*complex;
 	mlx_image_t	*img;
 	mlx_t		*mlx;

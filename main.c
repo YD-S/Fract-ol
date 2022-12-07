@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 22:26:12 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 00:17:33 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (argc <= 1)
+	if (argc <= 1 || argc > 4)
 	{
 		ft_arg_error();
 		exit(EXIT_FAILURE);

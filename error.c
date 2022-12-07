@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 22:08:25 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 22:14:11 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 23:59:45 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_arg_error(void)
 {
-	ft_printf("\nUsage: ./fractol [fractal name]\n");
-	ft_printf("Available fractals: mandelbrot,");
-	ft_printf(" julia [Complex Nº], burning_ship\n");
+	ft_printf("\033[31m");
+	ft_printf("Usage: ./fractol [fractal name]\n");
+	ft_printf("Available fractals: mandelbrot, julia [Constants], burningship");
+	ft_printf("\033[0m");
+	exit(0);
 }

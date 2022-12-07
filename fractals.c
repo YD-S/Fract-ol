@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 22:30:16 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 00:12:20 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ t_data	ft_fractal_init(void)
 
 int	ft_choose_fractal(char **argv, t_data *data)
 {
-	if (!ft_strncmp(argv[1], "mandelbrot", 10))
-		data->fractal = 1;
-	else if (!ft_strncmp(argv[1], "julia", 5))
+	if (!ft_strncmp(argv[1], "julia", 5))
 	{
 		data->fractal = 0;
 		farctol_julia(data, argv);
 	}
+	else if (!ft_strncmp(argv[1], "mandelbrot", 10))
+		data->fractal = 1;
+	else if (!ft_strncmp(argv[1], "burningship", 11))
+		data->fractal = 2;
 	else
 	{
 		ft_arg_error();
@@ -50,6 +52,11 @@ void	farctol_julia(t_data *data, char **argv)
 	double	v1;
 	double	v2;
 
+	if (!argv[2] || !argv[3])
+	{
+		ft_arg_error();
+		exit(EXIT_FAILURE);
+	}
 	v1 = atof(argv[2]);
 	v2 = atof(argv[3]);
 	data->complex = ft_create_complex(v1, v2);
