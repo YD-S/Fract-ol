@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:37 by ysingh            #+#    #+#             */
-/*   Updated: 2022/11/30 21:36:38 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:10:56 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	ft_mandelbrot(t_complex *complex, t_data *data)
 
 	j = ft_create_complex(0, 0);
 	n = 0;
-	while (ft_complex_module(j) <= 2 * 2 && n < data->max_iter)
+	while (ft_complex_module(j) <= 4 && n < data->max_iter)
 	{
 		ft_complex_mul(j, j);
 		ft_complex_addnum(j, complex);

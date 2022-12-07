@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 01:00:45 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/03 01:00:46 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:10:35 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double	ft_julia(t_complex *c, t_complex *z0, t_data *data)
 
 	j = ft_create_complex(z0->real, z0->imagine);
 	n = 0;
-	while (ft_complex_module(j) <= 2 * 2 && n < data->max_iter)
+	while (ft_complex_module(j) <= 4 && n < data->max_iter)
 	{
 		ft_complex_mul(j, j);
 		ft_complex_addnum(j, c);

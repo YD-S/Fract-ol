@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/11/30 21:36:27 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:12:26 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_data	ft_fractal_init(void)
 	data.scale = 1;
 	data.x_off = -WIDTH / 2;
 	data.y_off = -HEIGHT / 2;
-	data.max_iter = 50;
+	data.max_iter = 40;
 	data.complex->real = 0.285;
 	data.complex->imagine = 0.01;
 	if (!data.mlx)
@@ -57,17 +57,17 @@ void	ft_draw_fractal(t_data *data)
 		y = 0;
 		while ((unsigned int)y < HEIGHT)
 		{
-			ft_transform_pixel(x, y, data);
-			complex->real = (double)(((-2 + data->x_x) / (double)WIDTH) * 3);
-			complex->imagine = (double)(((-1 + data->y_y) / (double)HEIGHT)
-					* 2);
+			complex->real = (double)(-2 + data->x_x + (x * data->scale
+						/ (double)WIDTH) * 3);
+			complex->imagine = (double)(-1 + data->y_y + (y * data->scale
+						/ (double)HEIGHT) * 2);
 			if (data->fractal)
 				mlx_put_pixel(data->img, x, y,
 					ft_fractal_color(ft_mandelbrot(complex, data), data));
 			else
 				mlx_put_pixel(data->img, x, y,
-					ft_fractal_color(ft_julia(data->complex, complex, data),
-						data));
+						ft_fractal_color(ft_julia(data->complex, complex, data),
+							data));
 			y++;
 		}
 		x++;

@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/11/30 21:51:17 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/06 22:02:48 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	mlx_cursor_hook(data.mlx, &ft_mouse, &data);
 	mlx_key_hook(data.mlx, &hook, &data);
 	mlx_loop(data.mlx);
+	system("leaks -q fractol");
 	mlx_terminate(data.mlx);
 	return (EXIT_SUCCESS);
 }
