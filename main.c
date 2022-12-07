@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/06 22:02:48 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 19:23:22 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,37 @@ int	main(int argc, char **argv)
 	system("leaks -q fractol");
 	mlx_terminate(data.mlx);
 	return (EXIT_SUCCESS);
+}
+
+double	ft_atof(char *str)
+{
+	double	res;
+	double	dec;
+	int		i;
+	int		sign;
+
+	i = 0;
+	res = 0;
+	dec = 0;
+	sign = 1;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i] && str[i] != '.')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	if (str[i] == '.')
+		i++;
+	while (str[i])
+	{
+		dec = dec * 10 + str[i] - '0';
+		i++;
+	}
+	while (dec >= 1)
+		dec /= 10;
+	return (res + dec * sign);
 }

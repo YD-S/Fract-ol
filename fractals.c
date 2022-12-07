@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 13:12:26 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 19:21:33 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ t_data	ft_fractal_init(void)
 	data.x_off = -WIDTH / 2;
 	data.y_off = -HEIGHT / 2;
 	data.max_iter = 40;
-	data.complex->real = 0.285;
-	data.complex->imagine = 0.01;
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
 	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
@@ -35,13 +33,26 @@ int	ft_choose_fractal(char **argv, t_data *data)
 	if (!ft_strncmp(argv[1], "mandelbrot", 10))
 		data->fractal = 1;
 	else if (!ft_strncmp(argv[1], "julia", 5))
+	{
 		data->fractal = 0;
+		farctol_julia(data, argv);
+	}
 	else
 	{
 		ft_printf("There are no valid arguments");
 		return (0);
 	}
 	return (1);
+}
+
+void	farctol_julia(t_data *data, char **argv)
+{
+	double	v1;
+	double	v2;
+
+	v1 = atof(argv[2]);
+	v2 = atof(argv[3]);
+	data->complex = ft_create_complex(v1, v2);
 }
 
 void	ft_draw_fractal(t_data *data)
@@ -63,7 +74,7 @@ void	ft_draw_fractal(t_data *data)
 						/ (double)HEIGHT) * 2);
 			if (data->fractal)
 				mlx_put_pixel(data->img, x, y,
-					ft_fractal_color(ft_mandelbrot(complex, data), data));
+						ft_fractal_color(ft_mandelbrot(complex, data), data));
 			else
 				mlx_put_pixel(data->img, x, y,
 						ft_fractal_color(ft_julia(data->complex, complex, data),
