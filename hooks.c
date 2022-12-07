@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:41 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/05 10:21:19 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 21:59:13 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	hook(struct mlx_key_data keydata, void *param)
 {
-	t_data			*data;
+	t_data	*data;
 
 	data = (t_data *)param;
+	if (keydata.key == MLX_KEY_ESCAPE)
+	{
+		mlx_terminate(data->mlx);
+		exit(EXIT_SUCCESS);
+	}
 	if (keydata.key == MLX_KEY_W)
 		data->y_y -= 0.50;
 	if (keydata.key == MLX_KEY_S)

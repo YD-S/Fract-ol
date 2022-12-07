@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 19:21:33 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 22:30:16 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_choose_fractal(char **argv, t_data *data)
 	}
 	else
 	{
-		ft_printf("There are no valid arguments");
+		ft_arg_error();
 		return (0);
 	}
 	return (1);
@@ -72,13 +72,16 @@ void	ft_draw_fractal(t_data *data)
 						/ (double)WIDTH) * 3);
 			complex->imagine = (double)(-1 + data->y_y + (y * data->scale
 						/ (double)HEIGHT) * 2);
-			if (data->fractal)
+			if (data->fractal == 1)
 				mlx_put_pixel(data->img, x, y,
-						ft_fractal_color(ft_mandelbrot(complex, data), data));
-			else
+					ft_fractal_color(ft_mandelbrot(complex, data), data));
+			else if (data->fractal == 0)
 				mlx_put_pixel(data->img, x, y,
-						ft_fractal_color(ft_julia(data->complex, complex, data),
-							data));
+					ft_fractal_color(ft_julia(data->complex, complex, data),
+						data));
+			// else
+			// 	mlx_put_pixel(data->img, x, y,
+			// 		ft_fractal_color(ft_burning_ship(complex, data), data));
 			y++;
 		}
 		x++;

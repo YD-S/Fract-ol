@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 22:26:12 by ysingh           ###   ########.fr       */
+/*   Created: 2022/12/07 22:08:25 by ysingh            #+#    #+#             */
+/*   Updated: 2022/12/07 22:14:11 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char **argv)
+void	ft_arg_error(void)
 {
-	t_data	data;
-
-	if (argc <= 1)
-	{
-		ft_arg_error();
-		exit(EXIT_FAILURE);
-	}
-	data = ft_fractal_init();
-	if (!ft_choose_fractal(argv, &data))
-	{
-		exit(EXIT_FAILURE);
-		mlx_terminate(data.mlx);
-	}
-	ft_draw_fractal(&data);
-	mlx_cursor_hook(data.mlx, &ft_mouse, &data);
-	mlx_key_hook(data.mlx, &hook, &data);
-	mlx_loop(data.mlx);
-	mlx_terminate(data.mlx);
-	return (EXIT_SUCCESS);
+	ft_printf("\nUsage: ./fractol [fractal name]\n");
+	ft_printf("Available fractals: mandelbrot,");
+	ft_printf(" julia [Complex Nº], burning_ship\n");
 }

@@ -1,6 +1,6 @@
 NAME    = fractol
 CFLAGS  = -Wall -Wextra -Werror
-SRC		= main.c fractals.c ft_mandelbrot.c complex.c colors.c mouse.c hooks.c ft_julia.c
+SRC		= main.c fractals.c ft_mandelbrot.c complex.c colors.c mouse.c hooks.c ft_julia.c error.c
 OBJ		= ${SRC:.c=.o}
 LIBFT = libft/libft.a
 INC = -I libft/includes

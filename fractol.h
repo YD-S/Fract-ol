@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 19:21:39 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/07 22:10:55 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void			hook(struct mlx_key_data keydata, void *data);
 double			ft_julia(t_complex *c, t_complex *z0, t_data *data);
 double			ft_atof(char *str);
 void			farctol_julia(t_data *data, char **argv);
+void			ft_arg_error(void);
 
 #endif
