@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 00:17:33 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:51:06 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	data = ft_fractal_init();
-	if (!ft_choose_fractal(argv, &data))
+	if (!ft_choose_fractal(argv, argc, &data))
 	{
 		exit(EXIT_FAILURE);
 		mlx_terminate(data.mlx);

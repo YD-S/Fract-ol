@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:37 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 13:10:56 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:56:02 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,14 @@ double	ft_mandelbrot(t_complex *complex, t_data *data)
 	result = n + 1 - log(log2(ft_complex_module(j)));
 	free(j);
 	return (result);
+}
+
+void	fractol_mandelbrot(t_data *data, int argc)
+{
+	if (argc > 2)
+	{
+		ft_arg_error();
+		exit(EXIT_FAILURE);
+	}
+	data->fractal = 1;
 }

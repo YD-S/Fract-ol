@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 00:12:20 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 03:01:50 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ t_data	ft_fractal_init(void)
 	return (data);
 }
 
-int	ft_choose_fractal(char **argv, t_data *data)
+int	ft_choose_fractal(char **argv, int argc, t_data *data)
 {
 	if (!ft_strncmp(argv[1], "julia", 5))
-	{
-		data->fractal = 0;
 		farctol_julia(data, argv);
-	}
 	else if (!ft_strncmp(argv[1], "mandelbrot", 10))
-		data->fractal = 1;
+		fractol_mandelbrot(data, argc);
 	else if (!ft_strncmp(argv[1], "burningship", 11))
 		data->fractal = 2;
 	else
@@ -45,21 +42,6 @@ int	ft_choose_fractal(char **argv, t_data *data)
 		return (0);
 	}
 	return (1);
-}
-
-void	farctol_julia(t_data *data, char **argv)
-{
-	double	v1;
-	double	v2;
-
-	if (!argv[2] || !argv[3])
-	{
-		ft_arg_error();
-		exit(EXIT_FAILURE);
-	}
-	v1 = atof(argv[2]);
-	v2 = atof(argv[3]);
-	data->complex = ft_create_complex(v1, v2);
 }
 
 void	ft_draw_fractal(t_data *data)
@@ -75,23 +57,27 @@ void	ft_draw_fractal(t_data *data)
 		y = 0;
 		while ((unsigned int)y < HEIGHT)
 		{
-			complex->real = (double)(-2 + data->x_x + (x * data->scale
-						/ (double)WIDTH) * 3);
-			complex->imagine = (double)(-1 + data->y_y + (y * data->scale
-						/ (double)HEIGHT) * 2);
-			if (data->fractal == 1)
-				mlx_put_pixel(data->img, x, y,
-					ft_fractal_color(ft_mandelbrot(complex, data), data));
-			else if (data->fractal == 0)
-				mlx_put_pixel(data->img, x, y,
-					ft_fractal_color(ft_julia(data->complex, complex, data),
-						data));
-			// else
-			// 	mlx_put_pixel(data->img, x, y,
-			// 		ft_fractal_color(ft_burning_ship(complex, data), data));
+			ft_check_fractal(data, complex, x, y);
 			y++;
 		}
 		x++;
 	}
 	free(complex);
+}
+
+void	ft_check_fractal(t_data *data, t_complex *complex, int x, int y)
+{
+	complex->real = (double)(-2 + data->x_x + (x * data->scale / (double)WIDTH)
+			* 3);
+	complex->imagine = (double)(-1 + data->y_y + (y * data->scale
+				/ (double)HEIGHT) * 2);
+	if (data->fractal == 1)
+		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_mandelbrot(complex,
+					data), data));
+	else if (data->fractal == 0)
+		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_julia(data->complex,
+					complex, data), data));
+	// else
+	// 	mlx_put_pixel(data->img, x, y,
+	// 		ft_fractal_color(ft_burning_ship(complex, data), data));
 }
