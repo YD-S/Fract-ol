@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:49 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 21:29:47 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:31:11 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 	ft_draw_fractal(&data);
 	mlx_cursor_hook(data.mlx, &ft_mouse, &data);
 	mlx_key_hook(data.mlx, &hook, &data);
+	mlx_loop_hook(data.mlx, &ft_color_shift, &data);
 	mlx_loop(data.mlx);
 	mlx_terminate(data.mlx);
 	return (EXIT_SUCCESS);

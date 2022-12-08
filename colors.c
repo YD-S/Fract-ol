@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:11 by ysingh            #+#    #+#             */
-/*   Updated: 2022/11/30 21:36:14 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:03:09 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_fractal_color(double n, t_data *data)
 		value = 0;
 	else
 		value = 255;
-	hue = (hue / 255.) * 360.;
+	hue = (int)((hue / 255.) * 360. + data->hue_off) % 360;
 	sat /= 255.;
 	value /= 255.;
 	return (hsv2rgb((t_hsv){hue, sat, value}));
@@ -67,4 +67,16 @@ uint32_t	hsv2rgb(t_hsv hsv)
 	rgb = hsv2rgb2(hsv, pqt);
 	return ((int)(rgb.r * 255) << 24 | (int)(rgb.g * 255) << 16 | (int)(rgb.b
 			* 255) << 8 | 255);
+}
+
+void	ft_color_shift(void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	if (data->rainbow)
+	{
+		data->hue_off += 8.;
+		ft_draw_fractal(data);
+	}
 }

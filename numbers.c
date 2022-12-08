@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 03:07:44 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 03:08:13 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:38:16 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_is_double(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == '.')
@@ -37,6 +39,8 @@ double	ft_atof(char *str)
 	mod = 0;
 	dec = 0;
 	sign = 1;
+	if (!str)
+		return (0);
 	if (str[i++] == '-')
 		sign = -1;
 	while (str[i] && str[i] != '.')

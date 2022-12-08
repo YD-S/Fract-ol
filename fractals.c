@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 21:37:19 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:30:40 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_data	ft_fractal_init(void)
 
 	data.mlx = mlx_init(WIDTH, HEIGHT, "Fract-Ol", false);
 	data.scale = 1;
+	data.rainbow = 0;
+	data.hue_off = 0;
 	data.x_off = -WIDTH / 2;
 	data.y_off = -HEIGHT / 2;
 	data.max_iter = 40;
@@ -30,15 +32,11 @@ t_data	ft_fractal_init(void)
 
 int	ft_choose_fractal(char **argv, int argc, t_data *data)
 {
-	if (!ft_strncmp(argv[1], "julia", 5))
-	{
-		data->v1 = atof(argv[2]);
-		data->v2 = atof(argv[3]);
-		farctol_julia(data, argv);
-	}
-	else if (!ft_strncmp(argv[1], "mandelbrot", 10))
+	if (!ft_strcmp(argv[1], "julia"))
+		fractol_julia(data, argv);
+	else if (!ft_strcmp(argv[1], "mandelbrot"))
 		fractol_mandelbrot(data, argc);
-	else if (!ft_strncmp(argv[1], "burningship", 11))
+	else if (!ft_strcmp(argv[1], "burningship"))
 		data->fractal = 2;
 	else
 	{
@@ -77,10 +75,10 @@ void	ft_check_fractal(t_data *data, t_complex *complex, int x, int y)
 				/ (double)HEIGHT) * 2);
 	if (data->fractal == 1)
 		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_mandelbrot(complex,
-						data), data));
+					data), data));
 	else if (data->fractal == 0)
 		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_julia(data->complex,
-						complex, data), data));
+					complex, data), data));
 	// else
 	// 	mlx_put_pixel(data->img, x, y,
 	// 		ft_fractal_color(ft_burning_ship(complex, data), data));

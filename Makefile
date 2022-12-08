@@ -11,6 +11,12 @@ COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
 COLOUR_END=\033[0m
 
+ifeq ($(shell whoami), yash)
+	BREW = /opt/homebrew/Cellar/glfw/3.3.8/lib/
+else
+	BREW = "/Users/$(USER)/.brew/opt/glfw/lib/"
+endif
+
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ)

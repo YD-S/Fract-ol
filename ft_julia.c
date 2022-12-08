@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 01:00:45 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 21:37:12 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:36:11 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ double	ft_julia(t_complex *c, t_complex *z0, t_data *data)
 	return (module);
 }
 
-void	farctol_julia(t_data *data, char **argv)
+void	fractol_julia(t_data *data, char **argv)
 {
-	// double	v1;
-	// double	v2;
-
+	data->v1 = ft_atof(argv[2]);
+	data->v2 = ft_atof(argv[3]);
 	if (!ft_is_double(argv[2]) || !ft_is_double(argv[3]))
 	{
 		ft_arg_error();

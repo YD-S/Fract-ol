@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 22:01:51 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:28:39 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_data
 {
 	int			fractal;
 	int			max_iter;
+	int			rainbow;
 	double		x_x;
 	double		y_y;
 	double		x_off;
@@ -62,6 +63,7 @@ typedef struct s_data
 	double		scale;
 	double		v1;
 	double		v2;
+	double		hue_off;
 	t_complex	*complex;
 	mlx_image_t	*img;
 	mlx_t		*mlx;
@@ -83,12 +85,11 @@ void			hook_move(struct mlx_key_data keydata, t_data *data);
 void			hook(struct mlx_key_data keydata, void *data);
 double			ft_julia(t_complex *c, t_complex *z0, t_data *data);
 double			ft_atof(char *str);
-void			farctol_julia(t_data *data, char **argv);
+void			fractol_julia(t_data *data, char **argv);
 void			ft_arg_error(void);
 void			ft_check_fractal(t_data *data, t_complex *complex, int x,
 					int y);
 void			fractol_mandelbrot(t_data *data, int argc);
-void			farctol_julia(t_data *data, char **argv);
 int				ft_is_double(char *str);
-
+void			ft_color_shift(void *param);
 #endif
