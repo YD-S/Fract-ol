@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 16:12:45 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 21:37:19 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ t_data	ft_fractal_init(void)
 int	ft_choose_fractal(char **argv, int argc, t_data *data)
 {
 	if (!ft_strncmp(argv[1], "julia", 5))
+	{
+		data->v1 = atof(argv[2]);
+		data->v2 = atof(argv[3]);
 		farctol_julia(data, argv);
+	}
 	else if (!ft_strncmp(argv[1], "mandelbrot", 10))
 		fractol_mandelbrot(data, argc);
 	else if (!ft_strncmp(argv[1], "burningship", 11))
@@ -73,10 +77,10 @@ void	ft_check_fractal(t_data *data, t_complex *complex, int x, int y)
 				/ (double)HEIGHT) * 2);
 	if (data->fractal == 1)
 		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_mandelbrot(complex,
-					data), data));
+						data), data));
 	else if (data->fractal == 0)
 		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_julia(data->complex,
-					complex, data), data));
+						complex, data), data));
 	// else
 	// 	mlx_put_pixel(data->img, x, y,
 	// 		ft_fractal_color(ft_burning_ship(complex, data), data));

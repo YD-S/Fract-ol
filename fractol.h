@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 03:02:24 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 22:01:51 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ typedef struct s_data
 	int			max_iter;
 	double		x_x;
 	double		y_y;
-	int32_t		mouse_x;
-	int32_t		mouse_y;
 	double		x_off;
 	double		y_off;
 	double		scale;
+	double		v1;
+	double		v2;
 	t_complex	*complex;
 	mlx_image_t	*img;
 	mlx_t		*mlx;
@@ -79,6 +79,7 @@ void			ft_mouse(double x, double y, void *vdata);
 uint32_t		hsv2rgb(t_hsv hsv);
 t_data			ft_fractal_init(void);
 void			hook_scale(struct mlx_key_data keydata, t_data *mlx);
+void			hook_move(struct mlx_key_data keydata, t_data *data);
 void			hook(struct mlx_key_data keydata, void *data);
 double			ft_julia(t_complex *c, t_complex *z0, t_data *data);
 double			ft_atof(char *str);

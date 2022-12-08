@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:41 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 23:59:14 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 21:47:35 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,21 @@ void	hook(struct mlx_key_data keydata, void *param)
 	if (keydata.key == MLX_KEY_D)
 		data->x_x += 0.50;
 	hook_scale(keydata, data);
+	hook_move(keydata, data);
 	ft_draw_fractal(data);
+}
+
+void	hook_move(struct mlx_key_data keydata, t_data *data)
+{
+	if (keydata.key == MLX_KEY_Y)
+		data->v2 += 0.01f;
+	if (keydata.key == MLX_KEY_H)
+		data->v2 -= 0.01f;
+	if (keydata.key == MLX_KEY_G)
+		data->v1 += 0.01f;
+	if (keydata.key == MLX_KEY_T)
+		data->v1 -= 0.01f;
+	data->complex = ft_create_complex(data->v1, data->v2);
 }
 
 void	hook_scale(struct mlx_key_data keydata, t_data *mlx)

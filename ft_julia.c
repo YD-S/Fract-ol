@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 01:00:45 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 03:08:09 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/08 21:37:12 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,14 @@ double	ft_julia(t_complex *c, t_complex *z0, t_data *data)
 
 void	farctol_julia(t_data *data, char **argv)
 {
-	double	v1;
-	double	v2;
+	// double	v1;
+	// double	v2;
 
 	if (!ft_is_double(argv[2]) || !ft_is_double(argv[3]))
 	{
 		ft_arg_error();
 		exit(EXIT_FAILURE);
 	}
-	v1 = atof(argv[2]);
-	v2 = atof(argv[3]);
 	data->fractal = 0;
-	data->complex = ft_create_complex(v1, v2);
+	data->complex = ft_create_complex(data->v1, data->v2);
 }
