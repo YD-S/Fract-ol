@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 15:22:39 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 17:18:16 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <unistd.h>
 # define WIDTH 600
 # define HEIGHT 400
-# define SPEED 25
 
 typedef struct s_rgb
 {
