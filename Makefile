@@ -20,7 +20,7 @@ endif
 all: $(NAME)
 
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
-	@gcc $(CFLAGS) $(OBJ) $(MLX) -lglfw -L $(BREW) $(INC) -o $(NAME) $(LIBFT)
+	@gcc $(CFLAGS) $(OBJ) $(MLX) -Ofast -lglfw -L $(BREW) $(INC) -o $(NAME) $(LIBFT)
 	@echo "$(COLOUR_GREEN)🔥 🔥 Compliling Everything ✅ ✅$(COLOUR_END)"
 
 $(LIBFT):

@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:37:04 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/08 19:05:10 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 02:09:57 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	ft_mouse(double x, double y, void *vdata)
 {
-	t_data	*data;
+	t_data			*data;
+	static double	scale;
 
-	data = vdata;
-	(void)data;
-	//printf("X: %f Y: %f\n", x, y);;
-	printf("X: %f Y: %f\n", x, y);
-	//data->mouse_x = x;
-	//data->mouse_y = y;
+	(void)x;
+	if (scale == 0)
+		scale = 1;
+	data = (t_data *)vdata;
+	if (y > 0)
+		scale -= 0.01;
+	else if (y < 0)
+		scale += 0.01;
+	data->scale = scale;
+	ft_draw_fractal(data);
 }

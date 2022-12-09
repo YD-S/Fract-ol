@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 01:00:45 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 00:36:11 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 01:28:35 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	fractol_julia(t_data *data, char **argv)
 	data->v2 = ft_atof(argv[3]);
 	if (!ft_is_double(argv[2]) || !ft_is_double(argv[3]))
 	{
-		ft_arg_error();
+		ft_arg_error(data->mlx);
 		exit(EXIT_FAILURE);
 	}
 	data->fractal = 0;

@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 00:28:39 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 02:11:16 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,12 @@ float			ft_complex_module(t_complex *complex);
 void			ft_mouse(double x, double y, void *vdata);
 uint32_t		hsv2rgb(t_hsv hsv);
 t_data			ft_fractal_init(void);
-void			hook_scale(struct mlx_key_data keydata, t_data *mlx);
 void			hook_move(struct mlx_key_data keydata, t_data *data);
 void			hook(struct mlx_key_data keydata, void *data);
 double			ft_julia(t_complex *c, t_complex *z0, t_data *data);
 double			ft_atof(char *str);
 void			fractol_julia(t_data *data, char **argv);
-void			ft_arg_error(void);
+void			ft_arg_error(mlx_t *mlx);
 void			ft_check_fractal(t_data *data, t_complex *complex, int x,
 					int y);
 void			fractol_mandelbrot(t_data *data, int argc);
