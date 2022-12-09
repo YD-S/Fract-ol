@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 02:11:16 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 02:55:32 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ void			ft_check_fractal(t_data *data, t_complex *complex, int x,
 void			fractol_mandelbrot(t_data *data, int argc);
 int				ft_is_double(char *str);
 void			ft_color_shift(void *param);
+void			ft_color_hook(struct mlx_key_data keydata, t_data *data);
 #endif

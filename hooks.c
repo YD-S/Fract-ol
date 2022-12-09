@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:41 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 02:11:48 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 02:55:12 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,22 @@ void	hook(struct mlx_key_data keydata, void *param)
 			data->x_x -= 0.50;
 		if (keydata.key == MLX_KEY_RIGHT)
 			data->x_x += 0.50;
-		if (keydata.key == MLX_KEY_N)
-		{
-			data->hue_off = 0.;
-			data->rainbow = 0;
-		}
-		if (keydata.key == MLX_KEY_M)
-			data->rainbow = !data->rainbow;
+		ft_color_hook(keydata, data);
+		if (data->fractal == 0)
+			hook_move(keydata, data);
+		ft_draw_fractal(data);
 	}
-	hook_move(keydata, data);
-	ft_draw_fractal(data);
+}
+
+void	ft_color_hook(struct mlx_key_data keydata, t_data *data)
+{
+	if (keydata.key == MLX_KEY_N)
+	{
+		data->hue_off = 0.;
+		data->rainbow = 0;
+	}
+	if (keydata.key == MLX_KEY_M)
+		data->rainbow = !data->rainbow;
 }
 
 void	hook_move(struct mlx_key_data keydata, t_data *data)
@@ -54,5 +60,6 @@ void	hook_move(struct mlx_key_data keydata, t_data *data)
 		data->v1 += 0.01f;
 	if (keydata.key == MLX_KEY_T)
 		data->v1 -= 0.01f;
+	free(data->complex);
 	data->complex = ft_create_complex(data->v1, data->v2);
 }
