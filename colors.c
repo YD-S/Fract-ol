@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:11 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 00:03:09 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 14:52:41 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_color_shift(void *param)
 	data = (t_data *)param;
 	if (data->rainbow)
 	{
-		data->hue_off += 8.;
+		data->hue_off += 10.;
 		ft_draw_fractal(data);
 	}
 }

@@ -36,8 +36,6 @@ double	ft_julia(t_complex *c, t_complex *z0, t_data *data)
 
 void	fractol_julia(t_data *data, char **argv)
 {
-	data->v1 = ft_atof(argv[2]);
-	data->v2 = ft_atof(argv[3]);
 	if (!ft_is_double(argv[2]) || !ft_is_double(argv[3]))
 	{
 		ft_arg_error(data->mlx);

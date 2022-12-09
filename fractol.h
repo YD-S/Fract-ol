@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:32 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 02:55:32 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 15:22:39 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ typedef struct s_data
 	int			rainbow;
 	double		x_x;
 	double		y_y;
-	double		x_off;
-	double		y_off;
 	double		scale;
 	double		v1;
 	double		v2;

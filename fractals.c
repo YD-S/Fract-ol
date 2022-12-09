@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 01:28:51 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 15:22:43 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ t_data	ft_fractal_init(void)
 	data.scale = 1;
 	data.rainbow = 0;
 	data.hue_off = 0;
-	data.x_off = -WIDTH / 2;
-	data.y_off = -HEIGHT / 2;
 	data.max_iter = 40;
 	if (!data.mlx)
 		exit(EXIT_FAILURE);
@@ -33,7 +31,11 @@ t_data	ft_fractal_init(void)
 int	ft_choose_fractal(char **argv, int argc, t_data *data)
 {
 	if (!ft_strcmp(argv[1], "julia"))
+	{
+		data->v1 = ft_atof(argv[2]);
+		data->v2 = ft_atof(argv[3]);
 		fractol_julia(data, argv);
+	}
 	else if (!ft_strcmp(argv[1], "mandelbrot"))
 		fractol_mandelbrot(data, argc);
 	else if (!ft_strcmp(argv[1], "burningship"))
