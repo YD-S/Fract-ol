@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:17 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/07 00:18:04 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 16:56:04 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	ft_complex_mul(t_complex *n1, t_complex *n2)
 
 float	ft_complex_module(t_complex *complex)
 {
-	return (pow(complex->real, 2) + pow(complex->imagine, 2));
+	return ((complex->real * complex->real)
+		+ (complex->imagine * complex->imagine));
 }
