@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:41 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 02:55:12 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/09 03:08:33 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	hook(struct mlx_key_data keydata, void *param)
 
 void	ft_color_hook(struct mlx_key_data keydata, t_data *data)
 {
+	if (keydata.key == MLX_KEY_P)
+		data->max_iter += 10;
+	if (keydata.key == MLX_KEY_L)
+		data->max_iter -= 10;
 	if (keydata.key == MLX_KEY_N)
 	{
 		data->hue_off = 0.;
