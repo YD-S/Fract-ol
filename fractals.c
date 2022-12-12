@@ -6,7 +6,7 @@
 /*   By: ysingh <ysingh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 21:36:26 by ysingh            #+#    #+#             */
-/*   Updated: 2022/12/09 15:22:43 by ysingh           ###   ########.fr       */
+/*   Updated: 2022/12/12 16:37:22 by ysingh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,4 @@ void	ft_check_fractal(t_data *data, t_complex *complex, int x, int y)
 	else if (data->fractal == 0)
 		mlx_put_pixel(data->img, x, y, ft_fractal_color(ft_julia(data->complex,
 					complex, data), data));
-	// else
-	// 	mlx_put_pixel(data->img, x, y,
-	// 		ft_fractal_color(ft_burning_ship(complex, data), data));
 }

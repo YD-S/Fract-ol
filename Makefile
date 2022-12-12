@@ -5,7 +5,6 @@ OBJ		= ${SRC:.c=.o}
 LIBFT = libft/libft.a
 INC = -I libft/includes
 MLX = MLX42/libmlx42.a
-BREW = /opt/homebrew/Cellar/glfw/3.3.8/lib/
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_BLUE=\033[0;34m
@@ -44,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus mlx42
+.PHONY: all clean fclean re mlx42
